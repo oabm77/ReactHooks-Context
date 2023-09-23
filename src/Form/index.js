@@ -8,30 +8,17 @@ import Complete from "./Complete";
 import Stepper from "../Stepper";
 
 const Form = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
 
-  // step = 0 -> <DatosUsuario />
-  // step = 1 -> <DatosPersonales />
-  // step = 2 -> <DatosEntrega />
-  // step = 3 -> <Complete />
-
-  /*const selectStep = () => {
-    switch (step) {
-      case 0: 
-        return <DatosUsuario />;
-      case 1: 
-        return <DatosPersonales />;
-      case 2: 
-        return <DatosEntrega />;
-      default: 
-        return <Complete />;
-    }
-  }*/
+  const updateStep = (step) => {
+    console.log("actualizar paso " + step)
+    setStep(step)
+  }
 
   const steps = {
-    0: <DatosUsuario />,  
-    1: <DatosPersonales />,  
-    2: <DatosEntrega />, 
+    0: <DatosUsuario updateStep={updateStep}/>,  
+    1: <DatosPersonales updateStep={updateStep}/>,  
+    2: <DatosEntrega updateStep={updateStep}/>, 
     3: <Complete />
   }
 
